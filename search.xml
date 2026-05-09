@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title></title>
+      <link href="/2026/05/06/%E6%9C%AA%E5%91%BD%E5%90%8D/"/>
+      <url>/2026/05/06/%E6%9C%AA%E5%91%BD%E5%90%8D/</url>
+      
+        <content type="html"><![CDATA[<h1 id="我的人生总是差一点"><a href="#我的人生总是差一点" class="headerlink" title="我的人生总是差一点"></a>我的人生总是差一点</h1>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>HENU-CS-作业</title>
       <link href="/2025/12/14/HENU-CS-%E4%BD%9C%E4%B8%9A/"/>
       <url>/2025/12/14/HENU-CS-%E4%BD%9C%E4%B8%9A/</url>
@@ -27,7 +40,7 @@
       <link href="/2025/02/18/docker-sh%E8%84%9A%E6%9C%AC/"/>
       <url>/2025/02/18/docker-sh%E8%84%9A%E6%9C%AC/</url>
       
-        <content type="html"><![CDATA[<p>脚本从 Windows 传输到 Linux导致脚本无法执行。<span id="more"></span></p><p>在配置web动态flag的时候发现一个问题：flag.sh无法执行在经过长时间的试错之后发现</p><p>如果脚本从 Windows 传输到 Linux，可能包含 Windows 格式的换行符（<code>\r\n</code>），这会导致脚本无法执行。</p><p>解决方法：</p><p>用下方语句检查如果看到 <code>^M</code> 字符，说明文件是 Windows 格式</p><figure class="highlight text"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat -v flag.sh</span><br></pre></td></tr></tbody></table></figure><p><img src="/2025/02/18/docker-sh%E8%84%9A%E6%9C%AC/docker-sh1.png" alt="alt text"></p><p>再用</p><figure class="highlight text"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dos2unix flag.sh</span><br></pre></td></tr></tbody></table></figure><p>将其转换为 Unix 格式</p><p>那么根据此原理Dockerfile更改如下</p><figure class="highlight text"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">FROM base_image_nginx_mysql_php_56</span><br><span class="line"></span><br><span class="line">COPY src /var/www/html</span><br><span class="line"></span><br><span class="line">RUN mv /var/www/html/flag.sh / &amp;&amp; \</span><br><span class="line">    chmod +x /flag.sh</span><br><span class="line">RUN dos2unix /flag.sh</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure><p><img src="/2025/02/18/docker-sh%E8%84%9A%E6%9C%AC/docker-sh2.png" alt="alt text"></p>]]></content>
+        <content type="html"><![CDATA[<p>脚本从 Windows 传输到 Linux导致脚本无法执行。<span id="more"></span></p><p>在配置web动态flag的时候发现一个问题：flag.sh无法执行在经过长时间的试错之后发现</p><p>如果脚本从 Windows 传输到 Linux，可能包含 Windows 格式的换行符（<code>\r\n</code>），这会导致脚本无法执行。</p><p>解决方法：</p><p>用下方语句检查如果看到 <code>^M</code> 字符，说明文件是 Windows 格式</p><figure class="highlight text"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat -v flag.sh</span><br></pre></td></tr></tbody></table></figure><p><img src="/2025/02/18/docker-sh%E8%84%9A%E6%9C%AC/docker-sh1.png" alt="alt text"></p><p>再用</p><figure class="highlight text"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dos2unix flag.sh</span><br></pre></td></tr></tbody></table></figure><p>将其转换为 Unix 格式</p><p>那么根据此原理 Dockerfile 更改如下</p><figure class="highlight text"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">FROM base_image_nginx_mysql_php_56</span><br><span class="line"></span><br><span class="line">COPY src /var/www/html</span><br><span class="line"></span><br><span class="line">RUN mv /var/www/html/flag.sh / &amp;&amp; \</span><br><span class="line">    chmod +x /flag.sh</span><br><span class="line">RUN dos2unix /flag.sh</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure><p><img src="/2025/02/18/docker-sh%E8%84%9A%E6%9C%AC/docker-sh2.png" alt="alt text"></p>]]></content>
       
       
       
@@ -230,9 +243,9 @@
       
         <tags>
             
-            <tag> PWN </tag>
-            
             <tag> 知识 </tag>
+            
+            <tag> PWN </tag>
             
         </tags>
       
